@@ -13,7 +13,7 @@ Python project to solve sudokus with back tracking algorithm
 This is a free to use Sudoku solver which you can download the .exe file in the output folder and use on your windows desktop.
 
 # Quick Download
-
+https://github.com/EricOB96/Sudoku_Solver/blob/main/output/main/SudokuSolver.exe
 
 # Features
 -  Fast backtracking algorithm
