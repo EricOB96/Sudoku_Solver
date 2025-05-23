@@ -27,7 +27,7 @@ class SudokuGrid:
         # create individual cells
         for i in range(9):
             for j in range(9):
-                self.create_grid(i, j)
+                self._create_cell(i, j)
                 
     
     # Create individual cell in grid
@@ -39,6 +39,8 @@ class SudokuGrid:
         # spacing between 3X3 boxes
         padx = (0, 3) if col in [2, 5] else (0, 1)
         pady = (0, 3) if row in [2, 5] else (0, 1)
+        
+        cell_frame.grid(row=row, column=col, padx=padx, pady = pady)
         
         # Different colours for 3X3 boxes
         box_color = "#ffffff" if (row // 3 + col // 3) % 2 == 0 else "#f8f9fa"
@@ -89,11 +91,11 @@ class SudokuGrid:
                         else:
                             raise ValueError(f"Invalid number: {value}")
                 except ValueError:
-                    messagebox.showerror("Invalid input",
-                                         f"Please enter only numbers from 1-9.\Found '{value}' at row {i + 1}, column {j+1}")
+                    messagebox.showerror("Invalid Input", 
+                                       f"Please enter only numbers 1-9.\nFound '{value}' at row {i+1}, column {j+1}")
                     return None
-                board.append(row)
-            return board
+            board.append(row)  
+        return board
         
     # Update grid with new board data
     def set_board_data(self, board):
@@ -117,7 +119,7 @@ class SudokuGrid:
     # Clear all cells and reset colours
     def clear_all_cells(self):
         for cell in self.cells.values():
-            cell.delete(0, tk.Entry)
+            cell.delete(0, tk.END)
             cell.configure(fg="#2c3e50")
         self.original_values.clear()
         

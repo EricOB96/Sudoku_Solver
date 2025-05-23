@@ -40,8 +40,8 @@ class SudokuApp:
     def center_window(self):
         
         self.root.update_idletasks()
-        width = 500
-        height = 500
+        width = 800
+        height = 800
         
         x = (self.root.winfo_screenwidth() // 2) - (width // 2)
         y = (self.root.winfo_screenheight() // 2) - (height // 2)
@@ -188,7 +188,7 @@ class SudokuApp:
         self.status_var.set("Board cleared")
         
     # load exaple puzzle
-    def load_puzzle(self):
+    def load_example(self):
         example_puzzle = self.puzzle_examples.get_random_puzzle()
         self.clear_puzzle()
         self.grid.set_board_data(example_puzzle)

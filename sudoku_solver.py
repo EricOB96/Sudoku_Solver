@@ -48,7 +48,7 @@ class SudokuSolver:
         
         for num in range(1, 10):
             if SudokuSolver.is_valid(board, row, col, num):
-                board[row][col]
+                board[row][col] = num
                 
                 if SudokuSolver.solve(board):
                     return True
